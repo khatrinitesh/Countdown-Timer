@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Repository</title>
+	<link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+
+<div class="counter" data-count="150"></div>
+<div class="counter" data-count="85"></div>
+<div class="counter" data-count="2200"></div>
+	<script type="text/javascript" src='js/jquery-1.12.0.min.js'></script>
+	<script type="text/javascript">
+		$('.counter').each(function() {
+			var $this = $(this),
+	 		countTo = $this.attr('data-count');
+
+		  $({ countNum: $this.text()}).animate({
+		    countNum: countTo
+		  },
+
+		  {
+		    duration: 8000,
+		    easing:'linear',
+		    step: function() {
+		      $this.text(Math.floor(this.countNum));
+		    },
+		    complete: function() {
+		      $this.text(this.countNum);
+		      //alert('finished');
+		    }
+
+		  });  
+		});
+	</script>
+</body>
+</html>
